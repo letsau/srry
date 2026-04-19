@@ -97,3 +97,45 @@ button:hover{transform:scale(1.1)}
   to{transform:translateY(-10vh)}
 }
 </style>
+
+
+<!-- =========================
+PAGE 1: index.html
+========================= -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Rija ❤️</title>
+</head>
+<body>
+
+<!-- particles -->
+<div class="particle" style="left:10%"></div>
+<div class="particle" style="left:30%"></div>
+<div class="particle" style="left:60%"></div>
+<div class="particle" style="left:80%"></div>
+
+<audio autoplay loop>
+<source src="music.mp3">
+</audio>
+
+<div class="container">
+<h1>Rija ❤️</h1>
+<p>
+From the moment you came into my life, everything changed.
+You didn’t just bring happiness… you brought meaning.
+
+This little world I made… it’s just a small reflection of how big my love for you is.
+</p>
+<img src="img 2.jpg">
+<br>
+<button onclick="go('page2.html')">Start</button>
+</div>
+
+<script>
+function go(p){document.body.style.opacity=0;setTimeout(()=>{window.location=p},500)}
+</script>
+
+</body>
+</html>
