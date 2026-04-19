@@ -1,148 +1,39 @@
-<!-- =========================
-ROMANTIC SORRY WEBSITE FOR RIJA (SOFT & AESTHETIC VERSION)
-========================= -->
-
-<!-- =========================
-PAGE 1: index.html
-========================= -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>I'm Sorry Rija</title>
+<title>For Rija ❤️</title>
 <style>
-body {
-  margin:0;
-  overflow:hidden;
-  text-align:center;
-  font-family: 'Segoe UI', cursive;
-  color:white;
-  background: linear-gradient(270deg,#ff9a9e,#fecfef,#fad0c4);
-  background-size:600% 600%;
-  animation:bg 12s ease infinite;
-}
-
-@keyframes bg {
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-.container{
-  margin-top:90px;
-  padding:20px;
-  backdrop-filter: blur(10px);
-}
-
-h1 {
-  font-size:40px;
-  text-shadow:0 0 15px rgba(255,255,255,0.8);
-}
-
-p {
-  font-size:18px;
-  max-width:700px;
-  margin:auto;
-  line-height:1.6;
-}
-
-img{
-  width:230px;
-  border-radius:20px;
-  margin:15px;
-  box-shadow:0 0 20px rgba(255,255,255,0.4);
-  transition:0.3s;
-}
-img:hover{transform:scale(1.05)}
-
-a{
-  padding:12px 30px;
-  border-radius:30px;
-  background:rgba(255,255,255,0.2);
-  color:white;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
-  backdrop-filter: blur(5px);
-}
-a:hover{transform:scale(1.1)}
-
-/* floating hearts */
-.heart{
-  position:absolute;
-  width:18px;
-  height:18px;
-  background:#ff4d6d;
-  transform:rotate(45deg);
-  bottom:-40px;
-  animation:float 7s infinite;
-}
-.heart::before,.heart::after{
-  content:"";
-  position:absolute;
-  width:18px;
-  height:18px;
-  background:#ff4d6d;
-  border-radius:50%;
-}
-.heart::before{top:-9px}
-.heart::after{left:-9px}
-
-@keyframes float{
-  to{transform:translateY(-900px) rotate(45deg);opacity:0}
-}
-
+body{margin:0;overflow:hidden;font-family:'Segoe UI',cursive;text-align:center;color:white;
+background:linear-gradient(270deg,#ff758c,#ff7eb3,#a18cd1);background-size:600% 600%;animation:bg 12s infinite}
+@keyframes bg{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+.container{margin-top:80px;animation:fadeIn 2s}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+img{width:320px;border-radius:20px;animation:float 4s infinite;margin:20px}
+@keyframes float{50%{transform:translateY(-20px)}}
+button{padding:12px 30px;border-radius:30px;border:none;background:rgba(255,255,255,0.2);color:white}
 </style>
 </head>
 <body>
 
-<div class="heart" style="left:15%"></div>
-<div class="heart" style="left:45%"></div>
-<div class="heart" style="left:75%"></div>
-
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<button onclick="toggleMusic()" style="margin-top:20px;padding:10px 20px;border-radius:20px;border:none;background:rgba(255,255,255,0.3);color:white;cursor:pointer;">
-  ▶ Play Music
-</button>
-
-<script>
-let isPlaying = false;
-function toggleMusic() {
-  const music = document.getElementById('bgMusic');
-  if (!isPlaying) {
-    music.play();
-    isPlaying = true;
-    event.target.innerHTML = '⏸ Pause Music';
-  } else {
-    music.pause();
-    isPlaying = false;
-    event.target.innerHTML = '▶ Play Music';
-  }
-}
-</script>
+<audio autoplay loop><source src="music.mp3"></audio>
 
 <div class="container">
-<h1>Rija... I'm Truly Sorry 💔</h1>
+<h1>Rija ❤️</h1>
 <p>
-I don't even know where to begin, because words feel so small compared to what I feel inside. 
-Rija, you are not just someone in my life… you are the reason my world feels alive.
+From the moment you came into my life, everything changed. 
+You brought a kind of warmth I didn’t even know I was missing.
 
-And it hurts me deeply knowing that I hurt you.
-
-If I could turn back time, I would choose differently. I would be more gentle, more careful… more deserving of you.
-
-Because your heart… is the most beautiful thing I’ve ever been trusted with.
+This… this is for you.
 </p>
-
-<img src="img 1.jpg">
 <img src="img 2.jpg">
-
-<a href="page2.html">Continue ❤️</a>
+<br>
+<button onclick="go('page2.html')">Start</button>
 </div>
+
+<script>
+function go(p){document.body.style.opacity=0;setTimeout(()=>{window.location=p},500)}
+</script>
+
 </body>
 </html>
-
-
