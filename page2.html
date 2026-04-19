@@ -2,23 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For Rija ❤️</title>
+<title>Sorry</title>
 
 <style>
-/* COMMON STYLE */
-body{
-  margin:0;overflow:hidden;font-family:'Segoe UI',cursive;text-align:center;color:white;
-  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
-  background-size:600% 600%;animation:bgFlow 12s ease infinite;
-}
+/* SAME STYLE */
+body{margin:0;overflow:hidden;font-family:'Segoe UI',cursive;text-align:center;color:white;
+background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
+background-size:600% 600%;animation:bgFlow 12s ease infinite;}
 @keyframes bgFlow{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
 
-body::after{
-  content:"";position:absolute;width:100%;height:100%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
-              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
-  animation: glowMove 10s infinite alternate;
-}
+body::after{content:"";position:absolute;width:100%;height:100%;
+background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
+radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
+animation: glowMove 10s infinite alternate;}
 @keyframes glowMove{from{transform:translateY(0)}to{transform:translateY(-20px)}}
 
 .container{margin-top:80px;padding:20px;animation:fadeIn 1.5s ease;}
@@ -27,37 +23,18 @@ body::after{
 h1{font-size:42px;text-shadow:0 0 20px rgba(255,100,150,0.9)}
 p{max-width:750px;margin:auto;line-height:1.8;font-size:18px;color:#ffe6ec;text-shadow:0 0 10px rgba(255,150,180,0.5)}
 
-img{
-  width:320px;height:320px;object-fit:cover;
-  border-radius:20px;margin:20px;
-  box-shadow:0 0 25px rgba(255,100,150,0.6);
-  animation:floatImg 5s ease-in-out infinite;
-}
+img{width:320px;height:320px;object-fit:cover;border-radius:20px;margin:20px;
+box-shadow:0 0 25px rgba(255,100,150,0.6);animation:floatImg 5s ease-in-out infinite;}
 @keyframes floatImg{0%,100%{transform:translateY(0)}50%{transform:translateY(-25px)}}
 
-button{
-  padding:12px 30px;border-radius:30px;border:none;
-  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
-  color:white;font-size:16px;cursor:pointer;
-}
+button{padding:12px 30px;border-radius:30px;border:none;
+background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
+color:white;font-size:16px;cursor:pointer;}
 button:hover{transform:scale(1.1)}
-
-.particle{
-  position:absolute;width:6px;height:6px;background:#ff80aa;border-radius:50%;
-  animation:rise 8s linear infinite;
-}
-@keyframes rise{from{transform:translateY(100vh)}to{transform:translateY(-10vh)}}
 </style>
 
 </head>
 <body>
-
-<div class="particle" style="left:10%"></div>
-<div class="particle" style="left:30%"></div>
-<div class="particle" style="left:60%"></div>
-<div class="particle" style="left:80%"></div>
-
-<audio autoplay loop><source src="music.mp3"></audio>
 
 <div class="container">
 <h1>I'm Sorry 💔</h1>
@@ -69,7 +46,7 @@ You deserved patience, softness, and love — and I failed.
 <img src="img 5.jpg">
 
 <br>
-<button onclick="go('page3.html')">Start</button>
+<button onclick="go('page3.html')">Next</button>
 </div>
 
 <script>
