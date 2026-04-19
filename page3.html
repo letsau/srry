@@ -2,211 +2,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Please Forgive Me</title>
-
 <style>
-body{
-  margin:0;
-  overflow:hidden;
-  text-align:center;
-  font-family:'Segoe UI', cursive;
-  color:white;
-
-  /* Pink gradient */
-  background: linear-gradient(270deg,#ff758c,#ff7eb3,#ff9a9e);
-  background-size:400% 400%;
-  animation:bg 12s infinite;
-}
-
-@keyframes bg{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-/* Glow overlay */
-.glow{
-  position:fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  background:radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2), transparent 60%);
-  animation:glowPulse 4s ease-in-out infinite;
-  z-index:0;
-}
-
-@keyframes glowPulse{
-  0%,100%{opacity:0.5}
-  50%{opacity:0.9}
-}
-
-/* Particles */
-.particles{
-  position:fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  overflow:hidden;
-  z-index:0;
-}
-
-.particle{
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:white;
-  border-radius:50%;
-  opacity:0.5;
-  animation:floatUp linear infinite;
-}
-
-.heart{
-  position:absolute;
-  bottom:-50px;
-  font-size:18px;
-  opacity:0.7;
-  animation:floatUp linear infinite;
-}
-
-@keyframes floatUp{
-  0%{
-    transform:translateY(0);
-    opacity:0.7;
-  }
-  100%{
-    transform:translateY(-110vh);
-    opacity:0;
-  }
-}
-
-/* Content */
-.container{
-  margin-top:90px;
-  position:relative;
-  z-index:1;
-}
-
-h1{
-  text-shadow:0 0 20px rgba(255,255,255,0.9);
-}
-
-p{
-  max-width:700px;
-  margin:auto;
-  line-height:1.7;
-}
-
-img{
-  width:230px;
-  border-radius:20px;
-  margin:10px;
-  box-shadow:0 0 20px rgba(255,255,255,0.6);
-}
-
-button{
-  padding:15px 35px;
-  border-radius:30px;
-  background:#ff4d6d;
-  color:white;
-  border:none;
-  font-size:18px;
-  box-shadow:0 0 20px rgba(255,77,109,0.8);
-  cursor:pointer;
-  position:relative;
-  z-index:1;
-}
-
-/* prevent blocking clicks */
-.glow, .particles{
-  pointer-events:none;
-}
+body{margin:0;overflow:hidden;text-align:center;font-family:'Segoe UI';color:white;
+background:linear-gradient(270deg,#a1c4fd,#c2e9fb);background-size:600% 600%;animation:bg 10s infinite}
+.container{margin-top:80px;animation:fadeIn 2s}
+img{width:340px;border-radius:20px;animation:float 6s infinite}
+button{padding:12px 30px;border-radius:30px;background:rgba(255,255,255,0.2);color:white;border:none}
 </style>
 </head>
-
 <body>
 
-<div class="glow"></div>
-<div class="particles" id="particles"></div>
-
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<button onclick="toggleMusic()" style="margin-top:20px;">
-  ▶ Play Music
-</button>
-
 <div class="container">
-<h1>I'm Sorry, Rija ❤️</h1>
-
+<h1>I Miss You ❤️</h1>
 <p>
-If there’s one thing I want right now… it’s another chance.
+I miss the way you smile, the way you talk, the way everything feels lighter when you’re around.
 
-Not because I deserve it, but because I still believe in us.
+Even in silence, my heart keeps reaching for you.
 
-I promise I will love you softer, understand you deeper, and never let you feel alone again.
-
-You are everything to me.
-
-Please… don’t let this be the end of us.
+No matter what happens… a part of me will always belong to you.
 </p>
-
-<img src="img 5.jpg">
-
-<br><br>
-<button oneclick="goNext('page4.html')">Forgive Me?</button>
+<img src="img 8.jpg">
+<br>
+<button onclick="go('page4.html')">Next</button>
 </div>
 
 <script>
-let isPlaying = false;
-
-function toggleMusic() {
-  const music = document.getElementById('bgMusic');
-  const btn = event.target;
-
-  if (!isPlaying) {
-    music.play();
-    isPlaying = true;
-    btn.innerHTML = '⏸ Pause Music';
-  } else {
-    music.pause();
-    isPlaying = false;
-    btn.innerHTML = '▶ Play Music';
-  }
-}
-
-/* particles */
-function createParticle(){
-  const p = document.createElement("div");
-  p.classList.add("particle");
-
-  p.style.left = Math.random() * 100 + "vw";
-  p.style.animationDuration = (6 + Math.random() * 6) + "s";
-
-  document.getElementById("particles").appendChild(p);
-
-  setTimeout(()=>{ p.remove(); },12000);
-}
-
-/* hearts */
-function createHeart(){
-  const h = document.createElement("div");
-  h.classList.add("heart");
-  h.innerHTML = "❤️";
-
-  h.style.left = Math.random() * 100 + "vw";
-  h.style.fontSize = (15 + Math.random() * 20) + "px";
-  h.style.animationDuration = (6 + Math.random() * 5) + "s";
-
-  document.getElementById("particles").appendChild(h);
-
-  setTimeout(()=>{ h.remove(); },12000);
-}
-
-setInterval(createParticle, 400);
-setInterval(createHeart, 900);
+function go(p){document.body.style.opacity=0;setTimeout(()=>{window.location=p},500)}
 </script>
 
 </body>
