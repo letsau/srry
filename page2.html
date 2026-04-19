@@ -2,29 +2,70 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>For Rija ❤️</title>
+
 <style>
-body{margin:0;overflow:hidden;text-align:center;font-family:'Segoe UI';color:white;
-background:linear-gradient(270deg,#ff9a9e,#fad0c4);background-size:600% 600%;animation:bg 10s infinite}
-.container{margin-top:80px;animation:fadeIn 2s}
-img{width:330px;border-radius:20px;animation:float 5s infinite}
-button{padding:12px 30px;border-radius:30px;background:rgba(255,255,255,0.2);color:white;border:none}
+/* COMMON STYLE */
+body{
+  margin:0;overflow:hidden;font-family:'Segoe UI',cursive;text-align:center;color:white;
+  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
+  background-size:600% 600%;animation:bgFlow 12s ease infinite;
+}
+@keyframes bgFlow{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+
+body::after{
+  content:"";position:absolute;width:100%;height:100%;
+  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
+              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
+  animation: glowMove 10s infinite alternate;
+}
+@keyframes glowMove{from{transform:translateY(0)}to{transform:translateY(-20px)}}
+
+.container{margin-top:80px;padding:20px;animation:fadeIn 1.5s ease;}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+
+h1{font-size:42px;text-shadow:0 0 20px rgba(255,100,150,0.9)}
+p{max-width:750px;margin:auto;line-height:1.8;font-size:18px;color:#ffe6ec;text-shadow:0 0 10px rgba(255,150,180,0.5)}
+
+img{
+  width:320px;height:320px;object-fit:cover;
+  border-radius:20px;margin:20px;
+  box-shadow:0 0 25px rgba(255,100,150,0.6);
+  animation:floatImg 5s ease-in-out infinite;
+}
+@keyframes floatImg{0%,100%{transform:translateY(0)}50%{transform:translateY(-25px)}}
+
+button{
+  padding:12px 30px;border-radius:30px;border:none;
+  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
+  color:white;font-size:16px;cursor:pointer;
+}
+button:hover{transform:scale(1.1)}
+
+.particle{
+  position:absolute;width:6px;height:6px;background:#ff80aa;border-radius:50%;
+  animation:rise 8s linear infinite;
+}
+@keyframes rise{from{transform:translateY(100vh)}to{transform:translateY(-10vh)}}
 </style>
+
 </head>
 <body>
+
+<div class="particle" style="left:10%"></div>
+<div class="particle" style="left:30%"></div>
+<div class="particle" style="left:60%"></div>
+<div class="particle" style="left:80%"></div>
+
+<audio autoplay loop><source src="music.mp3"></audio>
 
 <div class="container">
 <h1>I'm Sorry 💔</h1>
 <p>
-I replay everything in my mind, wishing I could undo the moment I hurt you.
-
-You never deserved that pain… not from me, not from anyone.
-
-If I could go back, I would choose softer words, kinder actions, and a better version of myself for you.
-
-Because hurting you… is the one thing I regret the most.
+I replay everything again and again… wishing I could undo the moment I hurt you.
+You deserved patience, softness, and love — and I failed.
 </p>
 <img src="img 5.jpg">
-<br>
 <button onclick="go('page3.html')">Next</button>
 </div>
 
