@@ -4,27 +4,225 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Rija ❤️</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+/* ===== GLOBAL ===== */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  color:white;
+  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
+  background-size:600% 600%;
+  animation:bgFlow 12s ease infinite;
+  overflow-x:hidden;
+}
+
+@keyframes bgFlow{
+  0%{background-position:0%}
+  50%{background-position:100%}
+  100%{background-position:0%}
+}
+
+/* ===== MUSIC BUTTON ===== */
+.music-btn{
+  position:fixed;
+  top:15px;
+  right:15px;
+  z-index:999;
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(255,77,109,0.6);
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== TEXT ===== */
+h1{
+  font-size:clamp(26px,5vw,44px);
+  text-shadow:0 0 20px rgba(255,120,160,0.8);
+}
+
+p{
+  max-width:700px;
+  font-size:clamp(14px,2.5vw,18px);
+  line-height:1.8;
+  color:#ffe6ec;
+}
+
+/* ===== IMAGES ===== */
+img{
+  width:min(320px,85vw);
+  height:min(320px,85vw);
+  object-fit:cover;
+  border-radius:20px;
+  margin:15px;
+  box-shadow:0 0 30px rgba(255,100,150,0.7);
+  animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+}
+
+/* ===== BUTTON ===== */
+button{
+  margin-top:15px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll{
+  position:fixed;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:12px;
+  opacity:0.6;
+}
+</style>
 </head>
+
 <body>
 
-<audio autoplay loop>
-<source src="music.mp3">
+<!-- 🎵 MUSIC -->
+<audio id="music" loop>
+  <source src="music.mp3">
 </audio>
 
-<div class="container">
-<h1>Rija ❤️</h1>
+<button class="music-btn" onclick="startMusic()">🎵 Play Music</button>
 
+<div class="scroll">Scroll ↓</div>
+
+<!-- ================= SECTION 1 ================= -->
+<div class="section">
+<h1>Rija ❤️</h1>
 <p>
 From the moment you came into my life, everything changed.
-You became my peace, my comfort, and my happiness.
-This is just a small reflection of how deeply I feel for you.
+You became my peace, my happiness, my meaning.
+This is just a small reflection of what I feel for you.
+</p>
+<img src="img 2.jpg">
+<button onclick="scrollNext()">Start</button>
+</div>
+
+<!-- ================= SECTION 2 ================= -->
+<div class="section">
+<h1>I'm Sorry 💔</h1>
+<p>
+I truly regret hurting you.
+You deserved patience, softness, and love from me — and I failed you in that moment.
+
+I keep thinking about it again and again, wishing I could go back and fix it.
+</p>
+<img src="img 5.jpg">
+</div>
+
+<!-- ================= SECTION 3 ================= -->
+<div class="section">
+<h1>I Miss You ❤️</h1>
+<p>
+I miss you more than words can explain.
+Even silence feels heavy without you.
+
+Every little thing reminds me of you.
+</p>
+<img src="img 8.jpg">
+</div>
+
+<!-- ================= SECTION 4 ================= -->
+<div class="section">
+<h1>My Love 💖</h1>
+<p>
+You are my peace and my chaos at the same time.
+With you, everything feels like home.
+
+And I never want to lose that feeling.
+</p>
+<img src="img 9.jpg">
+</div>
+
+<!-- ================= SECTION 5 ================= -->
+<div class="section">
+<h1>Please Forgive Me ❤️</h1>
+<p>
+If I could ask for one thing, it would be another chance.
+
+Not because I deserve it, but because I truly care for you.
+
+I will grow, learn, and love you better.
+Rija… I choose you. Always.
 </p>
 
-<img src="img 2.jpg">
+<img src="img 10.jpg">
+<img src="img 11.jpg">
+<img src="img 12.jpg">
 
-<button onclick="location.href='page2.html'">Start</button>
+<button onclick="alert('I will always choose you ❤️')">Forgive Me?</button>
 </div>
+
+<script>
+
+/* MUSIC START (USER CLICK REQUIRED - browser rule) */
+function startMusic(){
+  document.getElementById("music").play();
+}
+
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", ()=>{
+  sections.forEach(sec=>{
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* FIRST LOAD */
+window.onload = ()=>{
+  sections[0].classList.add("show");
+};
+
+/* BUTTON SCROLL */
+function scrollNext(){
+  window.scrollBy({top:window.innerHeight, behavior:"smooth"});
+}
+
+</script>
 
 </body>
 </html>
