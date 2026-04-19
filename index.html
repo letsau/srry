@@ -25,36 +25,76 @@ body{
   100%{background-position:0%}
 }
 
-/* ===== CINEMATIC FADE IN ===== */
-.section{
-  opacity:0;
-  transform:translateY(40px);
-  filter:blur(6px);
-  transition:1.2s ease;
-  margin-bottom:90px;
+/* ===== NETFLIX INTRO SCREEN ===== */
+#intro{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9999;
+  animation:fadeOutIntro 4s ease forwards;
+  animation-delay:3.5s;
 }
 
-.section.show{
-  opacity:1;
-  transform:translateY(0);
-  filter:blur(0);
+@keyframes fadeOutIntro{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
 }
 
-/* ===== FLOATING HEARTS (SOFT CINEMATIC) ===== */
+/* glowing cinematic title */
+#intro h1{
+  font-size:clamp(28px,6vw,60px);
+  letter-spacing:3px;
+  color:#ff4d6d;
+  text-shadow:0 0 25px rgba(255,77,109,0.8);
+  animation:zoomIn 2s ease;
+}
+
+@keyframes zoomIn{
+  from{
+    transform:scale(0.8);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+#intro p{
+  margin-top:10px;
+  opacity:0.7;
+  font-size:14px;
+}
+
+/* ===== MAIN SITE ===== */
+.container{
+  max-width:780px;
+  margin:50px auto;
+  padding:20px;
+}
+
+/* FLOATING HEARTS */
 .heart{
   position:fixed;
   color:#ff4d6d;
   font-size:14px;
   opacity:0.35;
-  animation:floatHearts 14s linear infinite;
+  animation:floatHearts 12s linear infinite;
 }
 
 @keyframes floatHearts{
-  0%{transform:translateY(100vh) scale(0.8)}
-  100%{transform:translateY(-10vh) scale(1.4)}
+  0%{transform:translateY(100vh)}
+  100%{transform:translateY(-10vh)}
 }
 
-/* ===== MUSIC BUTTON ===== */
+/* MUSIC */
 .music-btn{
   position:fixed;
   top:15px;
@@ -68,27 +108,40 @@ body{
   z-index:999;
 }
 
-/* ===== CONTAINER ===== */
-.container{
-  max-width:780px;
-  margin:50px auto;
-  padding:20px;
-  text-align:center;
+/* SECTIONS */
+.section{
+  margin-bottom:90px;
+  padding:25px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(5px);
+
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s ease;
 }
 
-/* ===== TEXT ===== */
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* TEXT */
 h1{
-  font-size:clamp(26px,5vw,42px);
+  font-size:clamp(26px,5vw,40px);
+  text-align:center;
   text-shadow:0 0 25px rgba(255,120,160,0.9);
 }
 
 p{
   font-size:clamp(15px,2.5vw,18px);
   line-height:1.9;
+  text-align:center;
   color:#ffe6ec;
 }
 
-/* ===== IMAGES (CINEMATIC GLOW) ===== */
+/* IMAGES */
 img{
   width:100%;
   max-width:340px;
@@ -96,33 +149,31 @@ img{
   margin:12px auto;
   display:block;
   box-shadow:0 0 30px rgba(255,100,150,0.6);
-  transition:0.6s;
 }
 
-img:hover{
-  transform:scale(1.03);
-}
-
-/* ===== BUTTON ===== */
+/* BUTTON */
 button{
-  padding:12px 26px;
+  display:block;
+  margin:20px auto 0;
+  padding:12px 25px;
   border:none;
   border-radius:25px;
   background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
   color:white;
   font-size:15px;
   cursor:pointer;
-  margin-top:12px;
-}
-
-button:hover{
-  transform:scale(1.06);
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- 🎬 NETFLIX INTRO -->
+<div id="intro">
+  <h1>RIJA ❤️</h1>
+  <p>A story from my heart...</p>
+</div>
 
 <!-- MUSIC -->
 <audio id="music" loop>
@@ -133,12 +184,11 @@ button:hover{
 🎵 Play Music
 </button>
 
-<!-- FLOATING HEARTS -->
+<!-- HEARTS -->
 <div class="heart" style="left:10%">❤️</div>
-<div class="heart" style="left:20%">❤️</div>
-<div class="heart" style="left:35%">❤️</div>
-<div class="heart" style="left:50%">❤️</div>
-<div class="heart" style="left:65%">❤️</div>
+<div class="heart" style="left:25%">❤️</div>
+<div class="heart" style="left:40%">❤️</div>
+<div class="heart" style="left:60%">❤️</div>
 <div class="heart" style="left:80%">❤️</div>
 
 <div class="container">
@@ -147,8 +197,7 @@ button:hover{
 <div class="section show" id="s1">
 <h1>Rija ❤️</h1>
 <p>
-This isn’t just a website… it’s everything I couldn’t say properly in words.
-You matter more than you think.
+This isn’t just a website… it’s a memory of everything I felt but never said properly.
 </p>
 <img src="img 1.jpg">
 <img src="img 2.jpg">
@@ -159,7 +208,7 @@ You matter more than you think.
 <div class="section" id="s2">
 <h1>How It Started 💖</h1>
 <p>
-It started quietly… but it became something that stayed in my mind every day since then.
+It started quietly… but it became something I could never ignore.
 </p>
 <img src="img 3.jpg">
 <img src="img 4.jpg">
@@ -170,7 +219,7 @@ It started quietly… but it became something that stayed in my mind every day s
 <div class="section" id="s3">
 <h1>Memories 🌙</h1>
 <p>
-Every small moment with you turned into something I still replay in my head.
+Every small moment became something I still remember clearly.
 </p>
 <img src="img 5.jpg">
 <img src="img 6.jpg">
@@ -181,8 +230,8 @@ Every small moment with you turned into something I still replay in my head.
 <div class="section" id="s4">
 <h1>I'm Sorry 💔</h1>
 <p>
-I know I hurt you in ways I shouldn’t have.
-And I regret it deeply… more than I can express here.
+I truly regret the times I hurt you.
+You deserved more patience, more understanding, more care… and I didn’t always give that.
 </p>
 <img src="img 7.jpg">
 <button onclick="next('s5')">Next</button>
@@ -192,8 +241,7 @@ And I regret it deeply… more than I can express here.
 <div class="section" id="s5">
 <h1>What You Became 💭</h1>
 <p>
-You became someone I think about without even trying.
-Not loud… just always there in my thoughts.
+You became someone I think about naturally… without forcing it.
 </p>
 <img src="img 8.jpg">
 <button onclick="next('s6')">Next</button>
@@ -203,8 +251,7 @@ Not loud… just always there in my thoughts.
 <div class="section" id="s6">
 <h1>I Miss You ❤️</h1>
 <p>
-Not just your presence… but the feeling of you.
-That’s what I miss the most.
+Not just your presence… but the feeling of you being there.
 </p>
 <img src="img 9.jpg">
 <button onclick="next('s7')">Next</button>
@@ -214,8 +261,7 @@ That’s what I miss the most.
 <div class="section" id="s7">
 <h1>My Feelings 💖</h1>
 <p>
-You became part of my peace without even realizing it.
-And that’s not something I forget easily.
+You became part of my peace without even trying.
 </p>
 <img src="img 10.jpg">
 <img src="img 11.jpg">
@@ -226,7 +272,7 @@ And that’s not something I forget easily.
 <div class="section" id="s8">
 <h1>Always You ❤️</h1>
 <p>
-Even if everything changes… my feelings don’t just disappear.
+Even if everything changes, my feelings don’t just disappear.
 </p>
 <img src="img 12.jpg">
 <button onclick="next('s9')">Next</button>
@@ -236,14 +282,16 @@ Even if everything changes… my feelings don’t just disappear.
 <div class="section" id="s9">
 <h1>Final Message 💌</h1>
 <p>
-If I ever ask for anything… it’s just one chance to do better.
-Not perfect… just better for you.
+I don’t expect anything.
+
+I just wanted to be honest…  
+if I ever get another chance, I would do things better, slowly, and carefully.
 
 Rija… I choose you. Always.
 </p>
 
 <button onclick="alert('I will always choose you ❤️')">
-Forgive Me?
+Last Message
 </button>
 </div>
 
@@ -251,18 +299,23 @@ Forgive Me?
 
 <script>
 
-/* reveal animation */
-const sections = document.querySelectorAll(".section");
+/* remove intro after animation */
+setTimeout(()=>{
+  document.getElementById("intro").style.display="none";
+},4000);
 
-window.addEventListener("scroll", ()=>{
+/* scroll reveal */
+const sections=document.querySelectorAll(".section");
+
+window.addEventListener("scroll",()=>{
   sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top < window.innerHeight - 80){
+    if(sec.getBoundingClientRect().top < window.innerHeight-80){
       sec.classList.add("show");
     }
   });
 });
 
-/* next button */
+/* next */
 function next(id){
   document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
