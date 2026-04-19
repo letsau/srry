@@ -6,19 +6,16 @@
 <title>For Rija ❤️</title>
 
 <style>
-/* ===== GLOBAL ===== */
-html{
-  scroll-behavior:smooth;
-}
 
+/* ===== BACKGROUND (same vibe you had) ===== */
 body{
   margin:0;
   font-family:'Segoe UI', sans-serif;
   color:white;
+
   background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
   background-size:600% 600%;
   animation:bgFlow 12s ease infinite;
-  overflow-x:hidden;
 }
 
 @keyframes bgFlow{
@@ -33,67 +30,49 @@ body{
   top:15px;
   right:15px;
   z-index:999;
-  padding:10px 18px;
+  padding:10px 16px;
   border:none;
   border-radius:20px;
   background:#ff4d6d;
   color:white;
   cursor:pointer;
-  box-shadow:0 0 15px rgba(255,77,109,0.6);
 }
 
-/* ===== SECTIONS ===== */
-.section{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+/* ===== CONTENT (NORMAL PAGE, NOT SLIDES) ===== */
+.container{
+  max-width:750px;
+  margin:40px auto;
   padding:20px;
-
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
-}
-
-.section.show{
-  opacity:1;
-  transform:translateY(0);
+  text-align:center;
 }
 
 /* ===== TEXT ===== */
 h1{
-  font-size:clamp(26px,5vw,44px);
-  text-shadow:0 0 20px rgba(255,120,160,0.8);
+  font-size:clamp(26px,5vw,42px);
+  text-shadow:0 0 20px rgba(255,120,160,0.7);
+  margin-bottom:15px;
 }
 
 p{
-  max-width:700px;
-  font-size:clamp(14px,2.5vw,18px);
+  font-size:clamp(15px,2.5vw,18px);
   line-height:1.8;
   color:#ffe6ec;
+  margin-bottom:20px;
 }
 
 /* ===== IMAGES ===== */
 img{
-  width:min(320px,85vw);
-  height:min(320px,85vw);
-  object-fit:cover;
+  width:100%;
+  max-width:320px;
+  height:auto;
   border-radius:20px;
-  margin:15px;
-  box-shadow:0 0 30px rgba(255,100,150,0.7);
-  animation:float 5s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-20px)}
+  margin:15px auto;
+  display:block;
+  box-shadow:0 0 25px rgba(255,100,150,0.6);
 }
 
 /* ===== BUTTON ===== */
 button{
-  margin-top:15px;
   padding:12px 25px;
   border:none;
   border-radius:25px;
@@ -101,56 +80,65 @@ button{
   color:white;
   font-size:15px;
   cursor:pointer;
+  margin-top:10px;
 }
 
-/* ===== SCROLL INDICATOR ===== */
-.scroll{
-  position:fixed;
-  bottom:15px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:12px;
-  opacity:0.6;
+button:hover{
+  transform:scale(1.05);
 }
+
+/* ===== SPACING BETWEEN SECTIONS ===== */
+.section{
+  margin-bottom:60px;
+}
+
+/* ===== MOBILE FIX ===== */
+@media(max-width:600px){
+  .container{
+    margin:20px 10px;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 MUSIC -->
+<!-- MUSIC -->
 <audio id="music" loop>
   <source src="music.mp3">
 </audio>
 
-<button class="music-btn" onclick="startMusic()">🎵 Play Music</button>
+<button class="music-btn" onclick="document.getElementById('music').play()">
+🎵 Play Music
+</button>
 
-<div class="scroll">Scroll ↓</div>
+<div class="container">
 
-<!-- ================= SECTION 1 ================= -->
+<!-- SECTION 1 -->
 <div class="section">
 <h1>Rija ❤️</h1>
 <p>
 From the moment you came into my life, everything changed.
-You became my peace, my happiness, my meaning.
+You became my peace, my happiness, and my meaning.
 This is just a small reflection of what I feel for you.
 </p>
 <img src="img 2.jpg">
-<button onclick="scrollNext()">Start</button>
 </div>
 
-<!-- ================= SECTION 2 ================= -->
+<!-- SECTION 2 -->
 <div class="section">
 <h1>I'm Sorry 💔</h1>
 <p>
 I truly regret hurting you.
 You deserved patience, softness, and love from me — and I failed you in that moment.
 
-I keep thinking about it again and again, wishing I could go back and fix it.
+I keep thinking about it again and again, wishing I could fix it.
 </p>
 <img src="img 5.jpg">
 </div>
 
-<!-- ================= SECTION 3 ================= -->
+<!-- SECTION 3 -->
 <div class="section">
 <h1>I Miss You ❤️</h1>
 <p>
@@ -162,7 +150,7 @@ Every little thing reminds me of you.
 <img src="img 8.jpg">
 </div>
 
-<!-- ================= SECTION 4 ================= -->
+<!-- SECTION 4 -->
 <div class="section">
 <h1>My Love 💖</h1>
 <p>
@@ -174,7 +162,7 @@ And I never want to lose that feeling.
 <img src="img 9.jpg">
 </div>
 
-<!-- ================= SECTION 5 ================= -->
+<!-- SECTION 5 -->
 <div class="section">
 <h1>Please Forgive Me ❤️</h1>
 <p>
@@ -190,39 +178,13 @@ Rija… I choose you. Always.
 <img src="img 11.jpg">
 <img src="img 12.jpg">
 
-<button onclick="alert('I will always choose you ❤️')">Forgive Me?</button>
+<button onclick="alert('I will always choose you ❤️')">
+Forgive Me?
+</button>
+
 </div>
 
-<script>
-
-/* MUSIC START (USER CLICK REQUIRED - browser rule) */
-function startMusic(){
-  document.getElementById("music").play();
-}
-
-/* SCROLL ANIMATION */
-const sections = document.querySelectorAll(".section");
-
-window.addEventListener("scroll", ()=>{
-  sections.forEach(sec=>{
-    const top = sec.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      sec.classList.add("show");
-    }
-  });
-});
-
-/* FIRST LOAD */
-window.onload = ()=>{
-  sections[0].classList.add("show");
-};
-
-/* BUTTON SCROLL */
-function scrollNext(){
-  window.scrollBy({top:window.innerHeight, behavior:"smooth"});
-}
-
-</script>
+</div>
 
 </body>
 </html>
