@@ -1,141 +1,74 @@
-<!-- =========================
-ROMANTIC WEBSITE FOR RIJA (ENHANCED VISUAL + FLOW)
-========================= -->
-
-<!-- =========================
-COMMON STYLE (copy into each page)
-========================= -->
-<style>
-body{
-  margin:0;
-  overflow:hidden;
-  font-family:'Segoe UI',cursive;
-  text-align:center;
-  color:white;
-  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
-  background-size:600% 600%;
-  animation:bgFlow 12s ease infinite;
-}
-
-@keyframes bgFlow{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-/* soft glowing overlay */
-body::after{
-  content:"";
-  position:absolute;
-  width:100%;height:100%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
-              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
-  animation: glowMove 10s infinite alternate;
-}
-
-@keyframes glowMove{
-  from{transform:translateY(0)}
-  to{transform:translateY(-20px)}
-}
-
-.container{
-  margin-top:80px;
-  padding:20px;
-  animation:fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.9)}
-  to{opacity:1; transform:scale(1)}
-}
-
-h1{
-  font-size:42px;
-  text-shadow:0 0 20px rgba(255,100,150,0.9);
-}
-
-p{
-  max-width:750px;
-  margin:auto;
-  line-height:1.8;
-  font-size:18px;
-  color:#ffe6ec;
-  text-shadow:0 0 10px rgba(255,150,180,0.5);
-  padding:10px;
-}
-
-img{
-  width:320px;
-  border-radius:20px;
-  margin:20px;
-  box-shadow:0 0 25px rgba(255,100,150,0.6);
-  animation:floatImg 5s ease-in-out infinite;
-}
-
-@keyframes floatImg{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-25px)}
-}
-
-button{
-  padding:12px 30px;
-  border-radius:30px;
-  border:none;
-  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
-  color:white;
-  font-size:16px;
-  box-shadow:0 0 15px rgba(255,77,109,0.7);
-  cursor:pointer;
-}
-button:hover{transform:scale(1.1)}
-
-/* floating particles */
-.particle{
-  position:absolute;
-  width:6px;height:6px;
-  background:#ff80aa;
-  border-radius:50%;
-  opacity:0.7;
-  animation:rise 8s linear infinite;
-}
-
-@keyframes rise{
-  from{transform:translateY(100vh)}
-  to{transform:translateY(-10vh)}
-}
-</style>
-
-
-<!-- =========================
-PAGE 1: index.html
-========================= -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>For Rija ❤️</title>
+
+<style>
+/* COMMON STYLE */
+body{
+  margin:0;overflow:hidden;font-family:'Segoe UI',cursive;text-align:center;color:white;
+  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
+  background-size:600% 600%;animation:bgFlow 12s ease infinite;
+}
+@keyframes bgFlow{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+
+body::after{
+  content:"";position:absolute;width:100%;height:100%;
+  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
+              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
+  animation: glowMove 10s infinite alternate;
+}
+@keyframes glowMove{from{transform:translateY(0)}to{transform:translateY(-20px)}}
+
+.container{margin-top:80px;padding:20px;animation:fadeIn 1.5s ease;}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+
+h1{font-size:42px;text-shadow:0 0 20px rgba(255,100,150,0.9)}
+p{max-width:750px;margin:auto;line-height:1.8;font-size:18px;color:#ffe6ec;text-shadow:0 0 10px rgba(255,150,180,0.5)}
+
+img{
+  width:320px;height:320px;object-fit:cover;
+  border-radius:20px;margin:20px;
+  box-shadow:0 0 25px rgba(255,100,150,0.6);
+  animation:floatImg 5s ease-in-out infinite;
+}
+@keyframes floatImg{0%,100%{transform:translateY(0)}50%{transform:translateY(-25px)}}
+
+button{
+  padding:12px 30px;border-radius:30px;border:none;
+  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
+  color:white;font-size:16px;cursor:pointer;
+}
+button:hover{transform:scale(1.1)}
+
+.particle{
+  position:absolute;width:6px;height:6px;background:#ff80aa;border-radius:50%;
+  animation:rise 8s linear infinite;
+}
+@keyframes rise{from{transform:translateY(100vh)}to{transform:translateY(-10vh)}}
+</style>
+
 </head>
 <body>
 
-<!-- particles -->
 <div class="particle" style="left:10%"></div>
 <div class="particle" style="left:30%"></div>
 <div class="particle" style="left:60%"></div>
 <div class="particle" style="left:80%"></div>
 
-<audio autoplay loop>
-<source src="music.mp3">
-</audio>
+<audio autoplay loop><source src="music.mp3"></audio>
 
 <div class="container">
 <h1>Rija ❤️</h1>
 <p>
 From the moment you came into my life, everything changed.
 You didn’t just bring happiness… you brought meaning.
-
 This little world I made… it’s just a small reflection of how big my love for you is.
 </p>
+
 <img src="img 2.jpg">
+
 <br>
 <button onclick="go('page2.html')">Start</button>
 </div>
@@ -146,558 +79,3 @@ function go(p){document.body.style.opacity=0;setTimeout(()=>{window.location=p},
 
 </body>
 </html>
-
-<!-- =========================
-ROMANTIC WEBSITE FOR RIJA (ENHANCED VISUAL + FLOW)
-========================= -->
-
-<!-- =========================
-COMMON STYLE (copy into each page)
-========================= -->
-<style>
-body{
-  margin:0;
-  overflow:hidden;
-  font-family:'Segoe UI',cursive;
-  text-align:center;
-  color:white;
-  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
-  background-size:600% 600%;
-  animation:bgFlow 12s ease infinite;
-}
-
-@keyframes bgFlow{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-/* soft glowing overlay */
-body::after{
-  content:"";
-  position:absolute;
-  width:100%;height:100%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
-              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
-  animation: glowMove 10s infinite alternate;
-}
-
-@keyframes glowMove{
-  from{transform:translateY(0)}
-  to{transform:translateY(-20px)}
-}
-
-.container{
-  margin-top:80px;
-  padding:20px;
-  animation:fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.9)}
-  to{opacity:1; transform:scale(1)}
-}
-
-h1{
-  font-size:42px;
-  text-shadow:0 0 20px rgba(255,100,150,0.9);
-}
-
-p{
-  max-width:750px;
-  margin:auto;
-  line-height:1.8;
-  font-size:18px;
-  color:#ffe6ec;
-  text-shadow:0 0 10px rgba(255,150,180,0.5);
-  padding:10px;
-}
-
-img{
-  width:320px;
-  border-radius:20px;
-  margin:20px;
-  box-shadow:0 0 25px rgba(255,100,150,0.6);
-  animation:floatImg 5s ease-in-out infinite;
-}
-
-@keyframes floatImg{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-25px)}
-}
-
-button{
-  padding:12px 30px;
-  border-radius:30px;
-  border:none;
-  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
-  color:white;
-  font-size:16px;
-  box-shadow:0 0 15px rgba(255,77,109,0.7);
-  cursor:pointer;
-}
-button:hover{transform:scale(1.1)}
-
-/* floating particles */
-.particle{
-  position:absolute;
-  width:6px;height:6px;
-  background:#ff80aa;
-  border-radius:50%;
-  opacity:0.7;
-  animation:rise 8s linear infinite;
-}
-
-@keyframes rise{
-  from{transform:translateY(100vh)}
-  to{transform:translateY(-10vh)}
-}
-</style>
-<!-- =========================
-PAGE 2
-========================= -->
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body>
-
-<div class="container">
-<h1>I'm Sorry 💔</h1>
-<p>
-I replay everything again and again… wishing I could undo the moment I hurt you.
-
-You deserved patience, softness, and love — and I failed in that moment.
-
-And that’s something I truly regret from the bottom of my heart.
-</p>
-<img src="img 5.jpg">
-<br>
-<button onclick="go('page3.html')">Next</button>
-</div>
-
-<script>
-function go(p){document.body.style.opacity=0;setTimeout(()=>{window.location=p},500)}
-</script>
-
-</body>
-</html>
-
-<!-- =========================
-ROMANTIC WEBSITE FOR RIJA (ENHANCED VISUAL + FLOW)
-========================= -->
-
-<!-- =========================
-COMMON STYLE (copy into each page)
-========================= -->
-<style>
-body{
-  margin:0;
-  overflow:hidden;
-  font-family:'Segoe UI',cursive;
-  text-align:center;
-  color:white;
-  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
-  background-size:600% 600%;
-  animation:bgFlow 12s ease infinite;
-}
-
-@keyframes bgFlow{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-/* soft glowing overlay */
-body::after{
-  content:"";
-  position:absolute;
-  width:100%;height:100%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
-              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
-  animation: glowMove 10s infinite alternate;
-}
-
-@keyframes glowMove{
-  from{transform:translateY(0)}
-  to{transform:translateY(-20px)}
-}
-
-.container{
-  margin-top:80px;
-  padding:20px;
-  animation:fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.9)}
-  to{opacity:1; transform:scale(1)}
-}
-
-h1{
-  font-size:42px;
-  text-shadow:0 0 20px rgba(255,100,150,0.9);
-}
-
-p{
-  max-width:750px;
-  margin:auto;
-  line-height:1.8;
-  font-size:18px;
-  color:#ffe6ec;
-  text-shadow:0 0 10px rgba(255,150,180,0.5);
-  padding:10px;
-}
-
-img{
-  width:320px;
-  border-radius:20px;
-  margin:20px;
-  box-shadow:0 0 25px rgba(255,100,150,0.6);
-  animation:floatImg 5s ease-in-out infinite;
-}
-
-@keyframes floatImg{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-25px)}
-}
-
-button{
-  padding:12px 30px;
-  border-radius:30px;
-  border:none;
-  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
-  color:white;
-  font-size:16px;
-  box-shadow:0 0 15px rgba(255,77,109,0.7);
-  cursor:pointer;
-}
-button:hover{transform:scale(1.1)}
-
-/* floating particles */
-.particle{
-  position:absolute;
-  width:6px;height:6px;
-  background:#ff80aa;
-  border-radius:50%;
-  opacity:0.7;
-  animation:rise 8s linear infinite;
-}
-
-@keyframes rise{
-  from{transform:translateY(100vh)}
-  to{transform:translateY(-10vh)}
-}
-</style>
-<!-- =========================
-PAGE 3
-========================= -->
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body>
-
-<div class="container">
-<h1>I Miss You ❤️</h1>
-<p>
-I miss your presence in ways I can't explain.
-
-Even the smallest things remind me of you… and every memory feels louder now.
-
-You’re not just someone I love… you’re someone I need.
-</p>
-<img src="img 8.jpg">
-<br>
-<button onclick="go('page4.html')">Next</button>
-</div>
-
-<script>
-function go(p){document.body.style.opacity=0;setTimeout(()=>{window.location=p},500)}
-</script>
-
-</body>
-</html>
-
-<!-- =========================
-ROMANTIC WEBSITE FOR RIJA (ENHANCED VISUAL + FLOW)
-========================= -->
-
-<!-- =========================
-COMMON STYLE (copy into each page)
-========================= -->
-<style>
-body{
-  margin:0;
-  overflow:hidden;
-  font-family:'Segoe UI',cursive;
-  text-align:center;
-  color:white;
-  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
-  background-size:600% 600%;
-  animation:bgFlow 12s ease infinite;
-}
-
-@keyframes bgFlow{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-/* soft glowing overlay */
-body::after{
-  content:"";
-  position:absolute;
-  width:100%;height:100%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
-              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
-  animation: glowMove 10s infinite alternate;
-}
-
-@keyframes glowMove{
-  from{transform:translateY(0)}
-  to{transform:translateY(-20px)}
-}
-
-.container{
-  margin-top:80px;
-  padding:20px;
-  animation:fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.9)}
-  to{opacity:1; transform:scale(1)}
-}
-
-h1{
-  font-size:42px;
-  text-shadow:0 0 20px rgba(255,100,150,0.9);
-}
-
-p{
-  max-width:750px;
-  margin:auto;
-  line-height:1.8;
-  font-size:18px;
-  color:#ffe6ec;
-  text-shadow:0 0 10px rgba(255,150,180,0.5);
-  padding:10px;
-}
-
-img{
-  width:320px;
-  border-radius:20px;
-  margin:20px;
-  box-shadow:0 0 25px rgba(255,100,150,0.6);
-  animation:floatImg 5s ease-in-out infinite;
-}
-
-@keyframes floatImg{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-25px)}
-}
-
-button{
-  padding:12px 30px;
-  border-radius:30px;
-  border:none;
-  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
-  color:white;
-  font-size:16px;
-  box-shadow:0 0 15px rgba(255,77,109,0.7);
-  cursor:pointer;
-}
-button:hover{transform:scale(1.1)}
-
-/* floating particles */
-.particle{
-  position:absolute;
-  width:6px;height:6px;
-  background:#ff80aa;
-  border-radius:50%;
-  opacity:0.7;
-  animation:rise 8s linear infinite;
-}
-
-@keyframes rise{
-  from{transform:translateY(100vh)}
-  to{transform:translateY(-10vh)}
-}
-</style>
-<!-- =========================
-PAGE 4
-========================= -->
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body>
-
-<div class="container">
-<h1>My Love 💖</h1>
-<p>
-You are my peace, my chaos, my happiness… all at once.
-
-There’s something about you that feels like home — like I’ve found where I truly belong.
-
-And I never want to lose that.
-</p>
-<img src="img 9.jpg">
-<br>
-<button onclick="go('page5.html')">Final</button>
-</div>
-
-<script>
-function go(p){document.body.style.opacity=0;setTimeout(()=>{window.location=p},500)}
-</script>
-
-</body>
-</html>
-
-
-<!-- =========================
-PAGE 5 FINAL
-========================= -->
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body>
-
-<div class="container">
-<h1>Please Forgive Me ❤️</h1>
-<p>
-If there’s one thing I ask for… it’s another chance.
-
-Not because I deserve it — but because what we have is too real to lose.
-
-I promise I’ll grow, I’ll learn, and I’ll love you the way you truly deserve.
-
-Rija… I choose you. Always.
-</p>
-<img src="img 10.jpg">
-<img src="img 11.jpg">
-<img src="img 12.jpg">
-<br><br>
-<button onclick="alert('I will always choose you ❤️')">Forgive Me?</button>
-</div>
-
-</body>
-</html>
-
-<!-- =========================
-ROMANTIC WEBSITE FOR RIJA (ENHANCED VISUAL + FLOW)
-========================= -->
-
-<!-- =========================
-COMMON STYLE (copy into each page)
-========================= -->
-<style>
-body{
-  margin:0;
-  overflow:hidden;
-  font-family:'Segoe UI',cursive;
-  text-align:center;
-  color:white;
-  background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
-  background-size:600% 600%;
-  animation:bgFlow 12s ease infinite;
-}
-
-@keyframes bgFlow{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-/* soft glowing overlay */
-body::after{
-  content:"";
-  position:absolute;
-  width:100%;height:100%;
-  background: radial-gradient(circle at 20% 30%, rgba(255,77,109,0.3), transparent),
-              radial-gradient(circle at 80% 70%, rgba(255,0,80,0.2), transparent);
-  animation: glowMove 10s infinite alternate;
-}
-
-@keyframes glowMove{
-  from{transform:translateY(0)}
-  to{transform:translateY(-20px)}
-}
-
-.container{
-  margin-top:80px;
-  padding:20px;
-  animation:fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.9)}
-  to{opacity:1; transform:scale(1)}
-}
-
-h1{
-  font-size:42px;
-  text-shadow:0 0 20px rgba(255,100,150,0.9);
-}
-
-p{
-  max-width:750px;
-  margin:auto;
-  line-height:1.8;
-  font-size:18px;
-  color:#ffe6ec;
-  text-shadow:0 0 10px rgba(255,150,180,0.5);
-  padding:10px;
-}
-
-img{
-  width:320px;
-  border-radius:20px;
-  margin:20px;
-  box-shadow:0 0 25px rgba(255,100,150,0.6);
-  animation:floatImg 5s ease-in-out infinite;
-}
-
-@keyframes floatImg{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-25px)}
-}
-
-button{
-  padding:12px 30px;
-  border-radius:30px;
-  border:none;
-  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
-  color:white;
-  font-size:16px;
-  box-shadow:0 0 15px rgba(255,77,109,0.7);
-  cursor:pointer;
-}
-button:hover{transform:scale(1.1)}
-
-/* floating particles */
-.particle{
-  position:absolute;
-  width:6px;height:6px;
-  background:#ff80aa;
-  border-radius:50%;
-  opacity:0.7;
-  animation:rise 8s linear infinite;
-}
-
-@keyframes rise{
-  from{transform:translateY(100vh)}
-  to{transform:translateY(-10vh)}
-}
-</style>
-<!-- =========================
-SETUP
-========================= -->
-<!--
-Put all files together:
-index.html
-page2.html ... page5.html
-music.mp3
-img 2.jpg, img 5.jpg, img 8.jpg, img 9.jpg, img 10.jpg, img 11.jpg, img 12.jpg
-
-Open index.html
-DONE ✅
--->
