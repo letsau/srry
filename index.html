@@ -7,11 +7,12 @@
 
 <style>
 
-/* ===== BACKGROUND (same vibe you had) ===== */
+/* ===== BACKGROUND ===== */
 body{
   margin:0;
   font-family:'Segoe UI', sans-serif;
   color:white;
+  overflow-x:hidden;
 
   background: linear-gradient(270deg,#ff4d6d,#ff1a4d,#1a001a);
   background-size:600% 600%;
@@ -22,6 +23,20 @@ body{
   0%{background-position:0%}
   50%{background-position:100%}
   100%{background-position:0%}
+}
+
+/* ===== FLOATING HEARTS ===== */
+.heart{
+  position:fixed;
+  color:#ff4d6d;
+  font-size:18px;
+  animation:floatHearts 8s linear infinite;
+  opacity:0.6;
+}
+
+@keyframes floatHearts{
+  0%{transform:translateY(100vh) scale(0.8)}
+  100%{transform:translateY(-10vh) scale(1.3)}
 }
 
 /* ===== MUSIC BUTTON ===== */
@@ -38,41 +53,77 @@ body{
   cursor:pointer;
 }
 
-/* ===== CONTENT (NORMAL PAGE, NOT SLIDES) ===== */
-.container{
-  max-width:750px;
-  margin:40px auto;
-  padding:20px;
+/* ===== START SCREEN ===== */
+.start-screen{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
 }
 
-/* ===== TEXT ===== */
+.start-screen h1{
+  font-size:clamp(28px,5vw,45px);
+  text-shadow:0 0 25px rgba(255,120,160,0.8);
+}
+
+.start-btn{
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff4d6d,#ff1a4d);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.container{
+  display:none;
+  max-width:800px;
+  margin:auto;
+  padding:20px;
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:50px;
+  backdrop-filter: blur(6px);
+}
+
 h1{
-  font-size:clamp(26px,5vw,42px);
-  text-shadow:0 0 20px rgba(255,120,160,0.7);
-  margin-bottom:15px;
+  font-size:clamp(24px,5vw,40px);
+  text-align:center;
+  text-shadow:0 0 20px rgba(255,120,160,0.8);
 }
 
 p{
   font-size:clamp(15px,2.5vw,18px);
   line-height:1.8;
   color:#ffe6ec;
-  margin-bottom:20px;
+  text-align:center;
 }
 
-/* ===== IMAGES ===== */
+/* ===== IMAGES GRID ===== */
 img{
   width:100%;
   max-width:320px;
-  height:auto;
-  border-radius:20px;
-  margin:15px auto;
+  border-radius:18px;
+  margin:10px auto;
   display:block;
   box-shadow:0 0 25px rgba(255,100,150,0.6);
 }
 
-/* ===== BUTTON ===== */
+/* ===== FINAL BUTTON ===== */
 button{
+  display:block;
+  margin:20px auto 0;
   padding:12px 25px;
   border:none;
   border-radius:25px;
@@ -80,29 +131,18 @@ button{
   color:white;
   font-size:15px;
   cursor:pointer;
-  margin-top:10px;
-}
-
-button:hover{
-  transform:scale(1.05);
-}
-
-/* ===== SPACING BETWEEN SECTIONS ===== */
-.section{
-  margin-bottom:60px;
-}
-
-/* ===== MOBILE FIX ===== */
-@media(max-width:600px){
-  .container{
-    margin:20px 10px;
-  }
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- HEART BACKGROUND -->
+<div class="heart" style="left:10%">❤️</div>
+<div class="heart" style="left:30%">❤️</div>
+<div class="heart" style="left:60%">❤️</div>
+<div class="heart" style="left:80%">❤️</div>
 
 <!-- MUSIC -->
 <audio id="music" loop>
@@ -113,78 +153,115 @@ button:hover{
 🎵 Play Music
 </button>
 
-<div class="container">
+<!-- START SCREEN -->
+<div class="start-screen" id="start">
+  <h1>For Rija ❤️</h1>
+  <p>A small world made only for you…</p>
+  <button class="start-btn" onclick="startSite()">Open My Heart</button>
+</div>
 
-<!-- SECTION 1 -->
+<!-- MAIN CONTENT -->
+<div class="container" id="content">
+
+<!-- INTRO -->
 <div class="section">
 <h1>Rija ❤️</h1>
 <p>
-From the moment you came into my life, everything changed.
-You became my peace, my happiness, and my meaning.
-This is just a small reflection of what I feel for you.
+Before anything else… I just want you to know this.
+Everything here is not just words… it’s everything I feel but couldn’t say properly before.
+</p>
+<img src="img 1.jpg">
+</div>
+
+<div class="section">
+<h1>How It Started 💖</h1>
+<p>
+From the moment you entered my life, everything changed quietly but deeply.
+You became the reason I smiled for no reason at all.
 </p>
 <img src="img 2.jpg">
 </div>
 
-<!-- SECTION 2 -->
+<div class="section">
+<h1>Moments With You 🌸</h1>
+<p>
+Even the smallest conversations, the silence, the random talks… everything felt special with you.
+</p>
+<img src="img 3.jpg">
+<img src="img 4.jpg">
+</div>
+
 <div class="section">
 <h1>I'm Sorry 💔</h1>
 <p>
-I truly regret hurting you.
-You deserved patience, softness, and love from me — and I failed you in that moment.
-
-I keep thinking about it again and again, wishing I could fix it.
+I’m truly sorry for the moments I hurt you.
+You deserved patience, understanding, and gentle love from me… and I failed to give that at times.
+I regret it deeply.
 </p>
 <img src="img 5.jpg">
 </div>
 
-<!-- SECTION 3 -->
 <div class="section">
-<h1>I Miss You ❤️</h1>
+<h1>What I Feel Now ❤️</h1>
 <p>
-I miss you more than words can explain.
-Even silence feels heavy without you.
+I think about you more than I should.
+Not because I’m forced to… but because you became someone I care about deeply.
+</p>
+<img src="img 6.jpg">
+<img src="img 7.jpg">
+</div>
 
-Every little thing reminds me of you.
+<div class="section">
+<h1>I Miss You 💭</h1>
+<p>
+I miss you in ways I can’t explain properly.
+It’s not just your presence… it’s the feeling of you being there.
 </p>
 <img src="img 8.jpg">
 </div>
 
-<!-- SECTION 4 -->
 <div class="section">
 <h1>My Love 💖</h1>
 <p>
-You are my peace and my chaos at the same time.
-With you, everything feels like home.
-
-And I never want to lose that feeling.
+You became my comfort, my peace, my chaos, my happiness.
+Everything feels better when you’re part of it.
 </p>
 <img src="img 9.jpg">
 </div>
 
-<!-- SECTION 5 -->
 <div class="section">
-<h1>Please Forgive Me ❤️</h1>
+<h1>Always You ❤️</h1>
 <p>
-If I could ask for one thing, it would be another chance.
-
-Not because I deserve it, but because I truly care for you.
-
-I will grow, learn, and love you better.
-Rija… I choose you. Always.
+No matter what happens, my feelings don’t change.
+You are still the one I care about the most.
 </p>
-
 <img src="img 10.jpg">
 <img src="img 11.jpg">
 <img src="img 12.jpg">
+</div>
+
+<div class="section">
+<h1>Final Words 💌</h1>
+<p>
+If I ever hurt you, I hope you see my effort here.
+I don’t want perfection… I just want to be better for you.
+Rija… I choose you, always.
+</p>
 
 <button onclick="alert('I will always choose you ❤️')">
 Forgive Me?
 </button>
-
 </div>
 
 </div>
+
+<script>
+function startSite(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("content").style.display="block";
+  document.getElementById("music").play();
+}
+</script>
 
 </body>
 </html>
